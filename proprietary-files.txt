@@ -6,6 +6,7 @@ etc/catalog/V1_DSDA/audiocomms_config/parameter-framework/Settings/Route/RouteCo
 
 # Bluetooth
 etc/firmware/BCM4335C0_003.001.009.0105.0563_Asus_ZE551ML.hcd
+etc/firmware/BCM4335C0_003.001.009.0105.0610_Asus_ZX551ML.hcd
 
 # Camera
 lib/libxditk_DIT_Moorefield.so
