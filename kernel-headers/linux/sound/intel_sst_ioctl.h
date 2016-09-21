@@ -21,25 +21,25 @@
 #include <linux/types.h>
 struct snd_ppp_params {
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
-  __u8 algo_id;
-  __u8 str_id;
-  __u8 enable;
-  __u8 operation;
+ __u8 algo_id;
+ __u8 str_id;
+ __u8 enable;
+ __u8 operation;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
-  __u32 size;
-  void * params;
+ __u32 size;
+ void *params;
 } __packed;
 struct snd_sst_driver_info {
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
-  __u32 max_streams;
+ __u32 max_streams;
 };
 struct snd_sst_tuning_params {
-  __u8 type;
+ __u8 type;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
-  __u8 str_id;
-  __u8 size;
-  __u8 rsvd;
-  __u64 addr;
+ __u8 str_id;
+ __u8 size;
+ __u8 rsvd;
+ __u64 addr;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 } __packed;
 #define SNDRV_SST_DRIVER_INFO _IOR('L', 0x10, struct snd_sst_driver_info)

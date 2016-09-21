@@ -32,107 +32,93 @@
 #define TTM_PLACEMENT_DATE "080819"
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 struct ttm_pl_create_req {
-  uint64_t size;
-  uint32_t placement;
-  uint32_t page_alignment;
+ uint64_t size;
+ uint32_t placement;
+ uint32_t page_alignment;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 };
-struct ttm_pl_create_userptr_req {
-  uint64_t size;
-  uint64_t user_address;
+struct ttm_pl_create_ub_req {
+ uint64_t size;
+ uint64_t user_address;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
-  uint32_t placement;
-  uint32_t page_alignment;
-};
-struct ttm_pl_create_dmabuf_req {
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
-  uint64_t size;
-  int32_t dmabuf_fd;
-  uint32_t placement;
-  uint32_t page_alignment;
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
-  uint32_t pad64;
+ uint32_t placement;
+ uint32_t page_alignment;
 };
 struct ttm_pl_rep {
-  uint64_t gpu_offset;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
-  uint64_t bo_size;
-  uint64_t map_handle;
-  uint32_t placement;
-  uint32_t handle;
+ uint64_t gpu_offset;
+ uint64_t bo_size;
+ uint64_t map_handle;
+ uint32_t placement;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
-  uint32_t sync_object_arg;
-  uint32_t pad64;
+ uint32_t handle;
+ uint32_t sync_object_arg;
+ uint32_t pad64;
 };
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 struct ttm_pl_setstatus_req {
+ uint32_t set_placement;
+ uint32_t clr_placement;
+ uint32_t handle;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
-  uint32_t set_placement;
-  uint32_t clr_placement;
-  uint32_t handle;
-  uint32_t pad64;
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+ uint32_t pad64;
 };
 struct ttm_pl_reference_req {
-  uint32_t handle;
-  uint32_t pad64;
+ uint32_t handle;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+ uint32_t pad64;
 };
 #define TTM_PL_SYNCCPU_MODE_READ TTM_ACCESS_READ
 #define TTM_PL_SYNCCPU_MODE_WRITE TTM_ACCESS_WRITE
-#define TTM_PL_SYNCCPU_MODE_NO_BLOCK (1 << 2)
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+#define TTM_PL_SYNCCPU_MODE_NO_BLOCK (1 << 2)
 #define TTM_PL_SYNCCPU_MODE_TRYCACHED (1 << 3)
 struct ttm_pl_synccpu_arg {
-  uint32_t handle;
-  uint32_t access_mode;
+ uint32_t handle;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
-#define TTM_PL_SYNCCPU_OP_GRAB 0
-#define TTM_PL_SYNCCPU_OP_RELEASE 1
-  uint32_t op;
-  uint32_t pad64;
+ uint32_t access_mode;
+ enum {
+ TTM_PL_SYNCCPU_OP_GRAB,
+ TTM_PL_SYNCCPU_OP_RELEASE
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+ } op;
+ uint32_t pad64;
 };
 #define TTM_PL_WAITIDLE_MODE_LAZY (1 << 0)
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 #define TTM_PL_WAITIDLE_MODE_NO_BLOCK (1 << 1)
 struct ttm_pl_waitidle_arg {
+ uint32_t handle;
+ uint32_t mode;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
-  uint32_t handle;
-  uint32_t mode;
 };
 union ttm_pl_create_arg {
+ struct ttm_pl_create_req req;
+ struct ttm_pl_rep rep;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
-  struct ttm_pl_create_req req;
-  struct ttm_pl_rep rep;
 };
 union ttm_pl_reference_arg {
+ struct ttm_pl_reference_req req;
+ struct ttm_pl_rep rep;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
-  struct ttm_pl_reference_req req;
-  struct ttm_pl_rep rep;
 };
 union ttm_pl_setstatus_arg {
+ struct ttm_pl_setstatus_req req;
+ struct ttm_pl_rep rep;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
-  struct ttm_pl_setstatus_req req;
-  struct ttm_pl_rep rep;
 };
-union ttm_pl_create_userptr_arg {
+union ttm_pl_create_ub_arg {
+ struct ttm_pl_create_ub_req req;
+ struct ttm_pl_rep rep;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
-  struct ttm_pl_create_userptr_req req;
-  struct ttm_pl_rep rep;
-};
-union ttm_pl_create_dmabuf_arg {
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
-  struct ttm_pl_create_dmabuf_req req;
-  struct ttm_pl_rep rep;
 };
 #define TTM_PL_CREATE 0x00
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 #define TTM_PL_REFERENCE 0x01
 #define TTM_PL_UNREF 0x02
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 #define TTM_PL_SYNCCPU 0x03
 #define TTM_PL_WAITIDLE 0x04
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 #define TTM_PL_SETSTATUS 0x05
-#define TTM_PL_CREATE_USERPTR 0x06
-#define TTM_PL_CREATE_DMABUF 0x07
-#endif
+#define TTM_PL_CREATE_UB 0x06
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+#endif
