@@ -42,7 +42,9 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
     sys.nfc.project_id_str=ze551ml \
     sys.nfc.loc=gold \
     sys.nfc.brcm.cfg=/etc/libnfc-brcm.conf \
-    sys.nfc.brcm.chip_cfg=/etc/libnfc-brcm-20795a20.conf
+    sys.nfc.brcm.chip_cfg=/etc/libnfc-brcm-20795a20.conf \
+    ro.nfc.conf=mofd-ffd2-a \
+    ro.nfc.clk=pll
 
 # NFC packages
 PRODUCT_PACKAGES += \
