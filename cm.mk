@@ -10,9 +10,6 @@ $(call inherit-product, device/asus/Z00A/device.mk)
 
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 
-# Enhanced NFC
-$(call inherit-product, vendor/cm/config/nfc_enhanced.mk)
-
 DEVICE_PACKAGE_OVERLAYS += device/asus/Z00A/overlay
 
 PRODUCT_RUNTIMES := runtime_libart_default
